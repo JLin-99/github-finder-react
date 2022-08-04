@@ -4,7 +4,7 @@ import GitHubContext from "../../context/github/GitHubContext";
 export default function UserSearch() {
   const [username, setUsername] = useState("");
 
-  const { users } = useContext(GitHubContext);
+  const { users, searchUsers } = useContext(GitHubContext);
 
   const handleChange = (e) => setUsername(e.target.value);
 
@@ -14,6 +14,7 @@ export default function UserSearch() {
     if (!username) {
       alert("Please enter something");
     } else {
+      searchUsers(username);
       setUsername("");
     }
   };
