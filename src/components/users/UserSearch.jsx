@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
+import AlertContext from "../../context/alert/AlertContext";
 import GitHubContext from "../../context/github/GitHubContext";
 
 export default function UserSearch() {
   const [username, setUsername] = useState("");
 
   const { users, searchUsers, clearUsers } = useContext(GitHubContext);
+  const { setAlert } = useContext(AlertContext);
 
   const handleChange = (e) => setUsername(e.target.value);
 
@@ -12,7 +14,7 @@ export default function UserSearch() {
     e.preventDefault();
 
     if (!username) {
-      alert("Please enter something");
+      setAlert("Please enter something", "error");
     } else {
       searchUsers(username);
       setUsername("");
