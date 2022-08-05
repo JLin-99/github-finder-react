@@ -10,6 +10,7 @@ export default function User() {
   const params = useParams();
   useEffect(() => {
     getUser(params.login);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const {
@@ -77,7 +78,7 @@ export default function User() {
               </div>
             </div>
 
-            <div className="w-full rounded-lg shadow-md bg-base-100 stats">
+            <div className="w-full rounded-lg shadow-md bg-base-200 stats">
               {location && (
                 <div className="stat">
                   <div className="stat-title text-md">Location</div>
@@ -116,7 +117,7 @@ export default function User() {
           </div>
         </div>
 
-        <div className="w-full p-5 mb-6 rounded-lg shadow-md bg-base-100 stats">
+        <div className="w-full p-5 mb-6 rounded-lg shadow-md bg-base-200 stats">
           <div className="stat">
             <div className="stat-figure text-secondary">
               <FaUsers className="text-3xl md:text-5xl" />
