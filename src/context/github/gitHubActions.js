@@ -10,3 +10,25 @@ export const searchUsers = async (username) => {
 
   return items;
 };
+
+export const getUser = async (login) => {
+  const params = new URLSearchParams({
+    sort: "created",
+    per_page: 10,
+  });
+
+  const response = await fetch(`${GITHUB_API_URL}/users/${login}`);
+
+  if (response.status === 404) {
+    window.location = "/notfound";
+  } else {
+    const data = await response.json();
+    const repos_response = await fetch(
+      `${GITHUB_API_URL}/users/${login}/repos?${params}`
+    );
+    const repos = await repos_response.json();
+    data.repos = repos;
+
+    return data;
+  }
+};
