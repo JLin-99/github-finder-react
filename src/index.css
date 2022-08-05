@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.input-lg {
+  border-radius: 0.7rem;
+}
+
 .custom-card-image .card.image-full:before {
+  border-radius: 0.5rem;
   opacity: 0.45;
 }
 
