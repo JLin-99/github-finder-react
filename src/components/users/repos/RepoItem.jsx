@@ -13,7 +13,7 @@ export default function RepoItem({ repo }) {
   } = repo;
 
   return (
-    <div className="mb-2 rounded-md card bg-secondary hover:bg-secondary-focus">
+    <div className="mb-2 rounded-md card bg-secondary-content hover:bg-neutral-content">
       <div className="card-body">
         <h3 className="mb-2 text-xl font-semibold">
           <a href={html_url} target="_blank" rel="noreferrer">
